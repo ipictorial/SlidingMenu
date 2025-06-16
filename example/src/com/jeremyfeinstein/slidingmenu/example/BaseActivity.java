@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
+import android.widget.Toast;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -59,12 +60,15 @@ public class BaseActivity extends SlidingFragmentActivity {
 		case android.R.id.home:
 			toggle();
 			return true;
-		case R.id.github:
-			Util.goToGitHub(this);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+                case R.id.github:
+                        Util.goToGitHub(this);
+                        return true;
+                case R.id.settings:
+                        Toast.makeText(this, R.string.settings, Toast.LENGTH_SHORT).show();
+                        return true;
+                }
+                return super.onOptionsItemSelected(item);
+        }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

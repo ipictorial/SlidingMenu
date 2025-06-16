@@ -89,20 +89,23 @@ public class ExampleListActivity extends SherlockPreferenceActivity {
 			.setMessage(Html.fromHtml(getString(R.string.apache_license)))
 			.show();
 			break;
-		case R.id.contact:
-			final Intent email = new Intent(android.content.Intent.ACTION_SENDTO);
-			String uriText = "mailto:jfeinstein10@gmail.com" +
-					"?subject=" + URLEncoder.encode("SlidingMenu Demos Feedback"); 
-			email.setData(Uri.parse(uriText));
-			try {
-				startActivity(email);
-			} catch (Exception e) {
-				Toast.makeText(this, R.string.no_email, Toast.LENGTH_SHORT).show();
-			}
-			break;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+                case R.id.contact:
+                        final Intent email = new Intent(android.content.Intent.ACTION_SENDTO);
+                        String uriText = "mailto:jfeinstein10@gmail.com" +
+                                        "?subject=" + URLEncoder.encode("SlidingMenu Demos Feedback");
+                        email.setData(Uri.parse(uriText));
+                        try {
+                                startActivity(email);
+                        } catch (Exception e) {
+                                Toast.makeText(this, R.string.no_email, Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                case R.id.settings:
+                        Toast.makeText(this, R.string.settings, Toast.LENGTH_SHORT).show();
+                        return true;
+                }
+                return super.onOptionsItemSelected(item);
+        }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
